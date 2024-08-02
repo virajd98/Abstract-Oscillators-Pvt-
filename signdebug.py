@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from classiq.execution import ClassiqBackendPreferences
 
+init_state=[0j, 0j, 0j, 0j, -0j, (1-0j), -0j, -0j]
 
 # @qfunc
 # def init_state_phase(state: QNum):
@@ -15,13 +16,13 @@ from classiq.execution import ClassiqBackendPreferences
 #     allocate(size, msb)
 #     bind(state, state_in_qubit)
 #     repeat(state_in_qubit.len, lambda i: CX(state_in_qubit[i], msb[i]))
-#     # control(msb[size-1], lambda: PHASE(-np.pi/2, state_in_qubit[size-1]))
+#     control(msb[size-1], lambda: PHASE(-np.pi/2, state_in_qubit[size-1]))
 #     bind(state_in_qubit, state)
 
 
 @qfunc
 def main(state: Output[QNum]):
-    prepare_amplitudes(amplitudes=[0j, 0j, 0j, 0j, -0j, (1-0j), -0j, -0j], out=state, bound=0.01)
+    prepare_amplitudes(amplitudes=init_state, out=state, bound=0.01)
     # init_state_phase(state)
 
 
@@ -32,4 +33,4 @@ qprog = synthesize(model_pref)
 
 job = execute(qprog)
 parsed_state_vector= job.result()[0].value.parsed_state_vector  # to get the phases
-print(parsed_state_vector)in
+print(parsed_state_vector)
