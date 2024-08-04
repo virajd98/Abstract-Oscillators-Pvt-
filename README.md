@@ -10,7 +10,7 @@ bridge the gap between theory and practice by translating the theoretical framew
 hardware and software capabilities.
 
 The objective of our [Womanium Quantum+AI 2024](https://womanium.org/Quantum/AI) Final Project is to implement, optimize, and evaluate the simulation of classical coupled harmonic 
-oscillators as detailed in the study. You can access the original paper [here](https://journals.aps.org/prresearch/references/10.1103/PhysRevResearch.6.013224).
+oscillators as detailed in the study. You can access the original paper [here](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.13.041041).
 
 ## Table of Contents
 
