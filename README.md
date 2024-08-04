@@ -53,7 +53,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 2. [Classiq Github HHL](https://github.com/Classiq/classiq-library/blob/main/tutorials/technology_demonstrations/hhl/hhl.ipynb)
 3. [Classiq Github Hamiltonian](https://github.com/Classiq/classiq-library/blob/main/tutorials/technology_demonstrations/hamiltonian_evolution/hamiltonian_evolution.ipynb)
 4. [Classiq Github Glued Trees](https://github.com/Classiq/classiq-library/blob/9c43f05f3d498c8c72be7dcb3ecdaba85d9abd6e/algorithms/glued_trees/glued_trees.ipynb#L4)
-5. [Classiq documentation](https://docs.classiq.io/latest/)
+5. [Classiq Github Hamiltonian Qubitization](https://github.com/Classiq/classiq-library/tree/9c43f05f3d498c8c72be7dcb3ecdaba85d9abd6e/tutorials/hamiltonian_simulation/hamiltonian_simulation_with_block_encoding)
+6. [Classiq documentation](https://docs.classiq.io/latest/)
 
 
 ## Acknowledgments
