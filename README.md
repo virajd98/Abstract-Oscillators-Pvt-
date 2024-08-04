@@ -10,15 +10,27 @@ bridge the gap between theory and practice by translating the theoretical framew
 hardware and software capabilities.
 
 The objective of our [Womanium Quantum+AI 2024](https://womanium.org/Quantum/AI) Final Project is to implement, optimize, and evaluate the simulation of classical coupled harmonic 
-oscillators as detailed in the study. You canaccess the original paper [here](https://journals.aps.org/prresearch/references/10.1103/PhysRevResearch.6.013224).
+oscillators as detailed in the study. You can access the original paper [here](https://journals.aps.org/prresearch/references/10.1103/PhysRevResearch.6.013224).
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+1. **[Implement a toy problem](CoupledSHO_accurate_toy_example.ipynb)** (the simplest possible) that covers:
+- Encoding of the problem.
+- The key algorithmic building blocks
+- The readout and post-processing.
+The implementation should be scalable, such that it is clear how to extend it for a more complicated scenario, and it should be checked and tested using
+a simulator.
+
+2) **Enlarge the problem for a more complicated scenario**.
+In this step, the actual problems from the papers should be implemented (e.g. the actual Hamiltonian that is shown in the paper should be
+implemented). Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares.
+
+4) **Optimize the solution for the most adequate hardware** that was found in the second step. 
+ 
+Deliverables:
+● Slides that summarize the work (5 mins - that would be 5 slides at max)
+● **The .qmod and .qprog files for each step.**
+● The Python Jupyter notebooks of each step (if applicable)
 
 ## Installation
 
@@ -36,7 +48,17 @@ Guidelines for contributing to the project.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Bibliography:
+1. R. Babbush, D. W. Berry, R. Kothari, R. D. Somma, and N. Wiebe, *Exponential Quantum Speedup in Simulating Coupled Classical Oscillators*, published in Phys. Rev. X 13, 041041 (2023)
+2. [Classiq Github HHL](https://github.com/Classiq/classiq-library/blob/main/tutorials/technology_demonstrations/hhl/hhl.ipynb)
+3. [Classiq Github Hamiltonian](https://github.com/Classiq/classiq-library/blob/main/tutorials/technology_demonstrations/hamiltonian_evolution/hamiltonian_evolution.ipynb)
+4. [Classiq Github Glued Trees](https://github.com/Classiq/classiq-library/blob/9c43f05f3d498c8c72be7dcb3ecdaba85d9abd6e/algorithms/glued_trees/glued_trees.ipynb#L4)
+5. [Classiq documentation](https://docs.classiq.io/latest/)
+
+
 ## Acknowledgments
 
-- Thank you to [Person] for [their contribution].
-- This project uses [Tool/Library] by [Author].
+- Thank you to [Eden Shirman](https://www.linkedin.com/in/eden-schirman-71bb7a1b9/?originalSubdomain=il), [Tomer Goldfriend](https://www.linkedin.com/in/tomer-goldfriend-3422341b2/), and
+   [everyone at Classiq](https://app.slack.com/client/T04KVKJKKFY/search).
+- Special thanks to [Womanium Team](https://womanium.org/Quantum/AI) for designing & organizing this program, and offering scholarships
+- This project uses [Classiq Github](https://github.com/Classiq/classiq-library/tree/main) by [Classiq](https://www.classiq.io/).
