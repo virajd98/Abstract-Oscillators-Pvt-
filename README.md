@@ -26,7 +26,7 @@ oscillators as detailed in the study. You can access the original paper [here](h
 The implementation should be scalable, such that it is clear how to extend it for a more complicated scenario, and it should be checked and tested using
 a simulator.
 
-2) **[Enlarge the problem for a more complicated scenario](Kinetic Energy Estimation - Problem 2.ipynb)**.
+2) **[Enlarge the problem for a more complicated scenario](Kinetic%20Energy%20Estimation%20-%20Problem%202.ipynb)**.
 ![image](https://github.com/user-attachments/assets/1d8aa050-5b69-4165-83bc-a7d21aa0fc89)
 In this step, the actual problems from the papers should be implemented (e.g. the actual Hamiltonian that is shown in the paper should be
 implemented). Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares.
