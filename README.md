@@ -34,7 +34,7 @@ Deliverables:
 
 ## Installation
 
-Step-by-step instructions on how to get the project running.
+Step-by-step instructions on how to get the project running. 
 
 ## Usage
 
@@ -46,7 +46,7 @@ Guidelines for contributing to the project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](MIT-LICENSE.txt) file for details.
 
 ## Bibliography:
 1. R. Babbush, D. W. Berry, R. Kothari, R. D. Somma, and N. Wiebe, *Exponential Quantum Speedup in Simulating Coupled Classical Oscillators*, published in Phys. Rev. X 13, 041041 (2023)
