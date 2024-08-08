@@ -33,6 +33,8 @@ CHAR_TO_STUCT_DICT = {"I": Pauli.I, "X": Pauli.X, "Y": Pauli.Y, "Z": Pauli.Z}
 ## Pre-Process Functions ##
 ###########################
 
+
+
 def create_matrix_F(K, N):
     """
         Definition:
@@ -276,7 +278,7 @@ def normalize_final_state(state_amplitudes, parsed_state_vector):
             final_state (nd_array 2*N^2x1): Normalized final state taking phases into account
     """
 
-    values = np.array([state_amplitudes[i] for i in range(len(state_amplitudes))])
+    values = np.array([state_amplitudes[i] for i in range(len(state_amplitudes))])  
     global_phase = np.angle(values)[0]
     values = values / np.exp(1j * global_phase)
 
@@ -284,6 +286,31 @@ def normalize_final_state(state_amplitudes, parsed_state_vector):
             [
                 parsed_state.amplitude
                 for parsed_state in parsed_state_vector
+            ]
+        )
+
+    final_state = values / normalization
+
+    return final_state
+
+
+def normalize_final_state2(state_amplitudes):
+    """
+        Definition:
+            Normalize the final state
+        Args:
+            state_amplitude_sums (dict): Amplitude and phase of each output qnum
+            parsed_state_vector (dict): Results of the state vector simulation
+        Output:
+            final_state (nd_array 2*N^2x1): Normalized final state taking phases into account
+    """
+
+    values = np.array([state_amplitudes[i] for i in range(len(state_amplitudes))])
+    global_phase = np.angle(values)[0]
+    values = values / np.exp(1j * global_phase)
+
+    normalization = np.linalg.norm(
+            [state_amplitudes
             ]
         )
 
@@ -336,7 +363,7 @@ def post_process_final_state(final_state, B, N, y_0):
     if np.linalg.matrix_rank(B) == B.shape[0] or np.linalg.matrix_rank(B) == B.shape[1]:
         y_final = np.linalg.solve(B, last_half)[:N]
     else:
-        y_final_0_padded = np.linalg.lstsq(B.T,-1j*last_half)[0]
+        y_final_0_padded = np.linalg.lstsq(B.T,-1j*last_half,rcond= None)[0]
         
         U, S, Vt = np.linalg.svd(B.T)
         rank = np.sum(S > 1e-10)
@@ -413,6 +440,24 @@ def back_coordinate_transformation(M, y_final, ydot_final):
     X = {"x_final": x_final, "xdot_final": xdot_final}
 
     return X
+
+def get_projected_state_vector(
+    execution_result,
+    measured_var: str,
+    projections: dict,
+) -> np.ndarray:
+    """
+    This function returns a reduced statevector from execution results.
+    measured var: the name of the reduced variable
+    projections: on which values of the other variables to project, e.g., {"ind": 1}
+    """
+    projected_size = len(execution_result[0].value.output_qubits_map[measured_var])
+    proj_statevector = np.zeros(2**projected_size).astype(complex)
+    for sample in execution_result[0].value.parsed_state_vector:
+        if all(sample.state[key] == projections[key] for key in projections.keys()):
+            proj_statevector[int(sample.state[measured_var])] += sample.amplitude
+    return proj_statevector
+
 
 #######################################################
 ## Pauli Decomposition Functions from Classiq GitHub ##
@@ -509,3 +554,26 @@ def pauli_list_to_hamiltonian(pauli_list):
         )
         for pauli, coeff in pauli_list
     ]
+
+
+#######################################################
+## Chebyshev coeffients functions: Taken from Classiq GitHub ##
+#######################################################
+
+
+def get_cheb_coef(epsilon, t):
+    poly_degree = int(
+        np.ceil(
+            t
+            + np.log(epsilon ** (-1)) / np.log(np.exp(1) + np.log(epsilon ** (-1)) / t)
+        )
+    )
+    cos_coef = [jv(0, t)] + [
+        2 * jv(2 * k, t) * (-1) ** k for k in range(1, poly_degree // 2 + 1)
+    ]
+    sin_coef = [
+        -2 * jv(2 * k - 1, t) * (-1) ** k for k in range(1, poly_degree // 2 + 1)
+    ]
+    return cos_coef, sin_coef
+
+
