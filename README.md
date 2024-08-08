@@ -49,8 +49,9 @@ Guidelines for contributing to the project.
 This project is licensed under the MIT License - see the [LICENSE](MIT-LICENSE.txt) file for details.
 
 ## Bibliography:
-1. R. Babbush, D. W. Berry, R. Kothari, R. D. Somma, and N. Wiebe, *Exponential Quantum Speedup in Simulating Coupled Classical Oscillators*, published in Phys. Rev. X 13, 041041 (2023), [link to paper](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.13.041041)
-2. G.H. Low, I.L. Chuang, *Hamiltonian simulation by Qubitization*, published in Quantum, 3 (2019), p. 163, [link to paper](https://quantum-journal.org/papers/q-2019-07-12-163/)
+1. R. Babbush, D. W. Berry, R. Kothari, R. D. Somma, and N. Wiebe, *Exponential Quantum Speedup in Simulating Coupled Classical Oscillators*, published in Phys. Rev. X 13, 041041 (2023), 
+https://doi.org/10.1103/PhysRevX.13.041041, [link to paper](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.13.041041)
+2. G.H. Low, I.L. Chuang, *Hamiltonian simulation by Qubitization*, published in Quantum, 3 (2019), p. 163, 	https://doi.org/10.22331/q-2019-07-12-163, [link to paper](https://quantum-journal.org/papers/q-2019-07-12-163/)
 3. [Classiq Github HHL](https://github.com/Classiq/classiq-library/blob/main/tutorials/technology_demonstrations/hhl/hhl.ipynb)
 4. [Classiq Github Hamiltonian](https://github.com/Classiq/classiq-library/blob/main/tutorials/technology_demonstrations/hamiltonian_evolution/hamiltonian_evolution.ipynb)
 5.  [Classiq Github Glued Trees](https://github.com/Classiq/classiq-library/blob/9c43f05f3d498c8c72be7dcb3ecdaba85d9abd6e/algorithms/glued_trees/glued_trees.ipynb#L4)
