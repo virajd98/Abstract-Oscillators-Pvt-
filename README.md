@@ -14,6 +14,8 @@ oscillators as detailed in the study. You can access the original paper [here](h
 
 ## Table of Contents
 
+
+
 1. **[Implement a toy problem](CoupledSHO_accurate_toy_example.ipynb)** (the simplest possible) that covers:
 - Encoding of the problem.
 - The key algorithmic building blocks
@@ -22,10 +24,11 @@ The implementation should be scalable, such that it is clear how to extend it fo
 a simulator.
 
 2) **Enlarge the problem for a more complicated scenario**.
+![image](https://github.com/user-attachments/assets/1d8aa050-5b69-4165-83bc-a7d21aa0fc89)
 In this step, the actual problems from the papers should be implemented (e.g. the actual Hamiltonian that is shown in the paper should be
 implemented). Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares.
 
-4) **Optimize the solution for the most adequate hardware** that was found in the second step. 
+3) **Optimize the solution for the most adequate hardware** that was found in the second step. 
  
 Deliverables:
 ● Slides that summarize the work (5 mins - that would be 5 slides at max)
