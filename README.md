@@ -64,3 +64,6 @@ This project is licensed under the MIT License - see the [LICENSE](MIT-LICENSE.t
    [everyone at Classiq](https://app.slack.com/client/T04KVKJKKFY/search).
 - Special thanks to [Womanium Team](https://womanium.org/Quantum/AI) for designing & organizing this program, and offering scholarships
 - This project uses [Classiq Github](https://github.com/Classiq/classiq-library/tree/main) by [Classiq](https://www.classiq.io/).
+
+![image](https://github.com/user-attachments/assets/71d911d2-f9f3-4ff8-88d0-be8e894334c3)
+
