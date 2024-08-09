@@ -18,7 +18,9 @@ The objective of our [Womanium Quantum+AI 2024](https://womanium.org/Quantum/AI)
 - Encoding of the problem. (Preprocessing)
 - The key algorithmic building blocks
 - The readout and post-processing.
+<p align="center">
 <img src="https://github.com/user-attachments/assets/0e59441e-b1e3-4f41-8410-d5be388b8bde" alt="Description" width="255">
+</p>
 
 Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToySuzuki.ipynb) and [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToyExponentiation.ipynb) for two different simulations of 2 simplest cases (toy problems). Benchmarking using classical numerical methods has also been done. 
 
@@ -30,8 +32,9 @@ In this step, an actual problem from the paper has been implemented. We attempt 
 
 A sneak peak into our results for this problem. 
 
+<p align="center">
 <img src="https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/Figures/Kinetic%20Energy%20Comparision.PNG" alt="Description" width="255">
-
+</p>
 
 Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares has been done. 
 
@@ -80,6 +83,6 @@ This project is licensed under the MIT License - see the [LICENSE](MIT-LICENSE.t
 - Special thanks to [Eden Shirman](https://www.linkedin.com/in/eden-schirman-71bb7a1b9/?originalSubdomain=il), [Tomer Goldfriend](https://www.linkedin.com/in/tomer-goldfriend-3422341b2/), and [everyone at Classiq](https://app.slack.com/client/T04KVKJKKFY/search).
 - This project uses [Classiq Github](https://github.com/Classiq/classiq-library/tree/main) by [Classiq](https://www.classiq.io/).
 
-
+<p align="center">
 ![image](https://github.com/user-attachments/assets/71d911d2-f9f3-4ff8-88d0-be8e894334c3)
-
+</p>
