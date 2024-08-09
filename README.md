@@ -88,5 +88,7 @@ This project is licensed under the MIT License - see the [LICENSE](MIT-LICENSE.t
 - This project uses [Classiq Github](https://github.com/Classiq/classiq-library/tree/main) by [Classiq](https://www.classiq.io/).
 
 <p align="center">
-![image](https://github.com/user-attachments/assets/71d911d2-f9f3-4ff8-88d0-be8e894334c3)
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/71d911d2-f9f3-4ff8-88d0-be8e894334c3" alt="Description" width="255">
 </p>
