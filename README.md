@@ -37,7 +37,7 @@ Resources estimation in terms of circuit depth, circuit width and number of 2-qu
 3) **Optimization of the solution found in step 1 for the most adequate hardwares**
  
 **Final Deliverables:**
-
+gi
 ● Slides that summarize the work
 ● **The .qmod and .qprog files for each step.** This can be found in the folder named [QMOD Files](https://github.com/virajd98/Abstract-Oscillators-Pvt-/tree/main/QMOD%20Files) and [QPROG Files](https://github.com/virajd98/Abstract-Oscillators-Pvt-/tree/main/Figures/QPROG%20Files) respectively. 
 ● The Python Jupyter notebooks with elaborate details for each step 

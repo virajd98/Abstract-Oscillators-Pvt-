@@ -17,6 +17,8 @@ from classiq import (
     Pauli,
     PauliTerm
 ) 
+from scipy.special import eval_chebyt, jv
+
 
 ## Define Global Variables
 PAULI_DICT = {
