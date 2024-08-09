@@ -1,0 +1,196 @@
+qfunc init_state_phase(state: qnum) {
+  state_in_qubit: qbit[];
+  msb: qbit[];
+  allocate<3.0>(msb);
+  state -> state_in_qubit;
+  repeat (i: state_in_qubit.len) {
+    CX(state_in_qubit[i], msb[i]);
+  }
+  control (msb[2.0]) {
+    PHASE<pi / 2>(state_in_qubit[2.0]);
+  }
+  state_in_qubit -> state;
+}
+
+qfunc identify_block<num_data_qubits: int>(qvar: qbit[], qbit: qbit) {
+  block_qubits: qnum<qvar.len - num_data_qubits, False, 0>;
+  data: qbit[num_data_qubits];
+  qvar -> {block_qubits, data};
+  qbit ^= block_qubits == 0;
+  {block_qubits, data} -> qvar;
+}
+
+qfunc apply_pauli_term<pauli_string: PauliTerm>(x: qbit[]) {
+  repeat (index: x.len) {
+    switch<pauli_string.pauli[index], [lambda() {
+      IDENTITY(x[(pauli_string.pauli.len - index) - 1]);
+    }, lambda() {
+      X(x[(pauli_string.pauli.len - index) - 1]);
+    }, lambda() {
+      Y(x[(pauli_string.pauli.len - index) - 1]);
+    }, lambda() {
+      Z(x[(pauli_string.pauli.len - index) - 1]);
+    }]>();
+  }
+}
+
+qfunc lcu_paulis<pauli_terms_list: PauliTerm[], probs: real[]>(block: qnum, data: qbit[]) {
+  within {
+    inplace_prepare_state<probs, 0.0>(block);
+  } apply {
+    repeat (i: pauli_terms_list.len) {
+      control (block == i) {
+        apply_pauli_term<pauli_terms_list[i]>(data);
+      }
+    }
+  }
+}
+
+qfunc my_qsvt<phases: real[]>(qsvt_aux: qbit, block_ham: qbit[], data: qbit[]) {
+  combined_vars: qbit[];
+  {block_ham, data} -> combined_vars;
+  qsvt<phases, lambda(qvar, qbit) {
+    identify_block<data.len>(qvar, qbit);
+  }, lambda(qvar, qbit) {
+    identify_block<data.len>(qvar, qbit);
+  }, lambda(x) {
+    lcu_paulis<[
+      PauliTerm {
+        pauli=[
+          Pauli::X,
+          Pauli::I,
+          Pauli::Z
+        ],
+        coefficient=-0.5
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::X,
+          Pauli::I,
+          Pauli::X
+        ],
+        coefficient=-0.25
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::X,
+          Pauli::Z,
+          Pauli::Z
+        ],
+        coefficient=-0.5
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::X,
+          Pauli::Z,
+          Pauli::X
+        ],
+        coefficient=-0.25
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::X,
+          Pauli::X,
+          Pauli::X
+        ],
+        coefficient=-0.25
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::X,
+          Pauli::Y,
+          Pauli::Y
+        ],
+        coefficient=-0.25
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::Y,
+          Pauli::I,
+          Pauli::Y
+        ],
+        coefficient=0.25
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::Y,
+          Pauli::Z,
+          Pauli::Y
+        ],
+        coefficient=0.25
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::Y,
+          Pauli::X,
+          Pauli::Y
+        ],
+        coefficient=-0.25
+      },
+      PauliTerm {
+        pauli=[
+          Pauli::Y,
+          Pauli::Y,
+          Pauli::X
+        ],
+        coefficient=0.25
+      }
+    ], [
+      0.1666666666666666,
+      0.0833333333333333,
+      0.1666666666666666,
+      0.0833333333333333,
+      0.0833333333333333,
+      0.0833333333333333,
+      0.0833333333333333,
+      0.0833333333333333,
+      0.0833333333333333,
+      0.0833333333333333,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]>(x[0:block_ham.len], x[block_ham.len:x.len]);
+  }>(combined_vars, qsvt_aux);
+  combined_vars -> {block_ham, data};
+}
+
+qfunc main(output qsvt_aux: qbit, output block_ham: qnum, output state: qnum, output block_exp: qbit) {
+  allocate<1>(qsvt_aux);
+  allocate<1>(block_exp);
+  allocate<4>(block_ham);
+  prepare_amplitudes<[
+    0j,
+    0j,
+    0j,
+    0j,
+    (-0j),
+    ((-0.7071067811865475) + 0j),
+    (0.7071067811865475 - 0j),
+    (-0j)
+  ], 0.01>(state);
+  init_state_phase(state);
+  within {
+    H(block_exp);
+  } apply {
+    control (block_exp == 0) {
+      my_qsvt<[
+        0.266809391910066,
+        5.797318612414655,
+        (-9.157968568859314)
+      ]>(qsvt_aux, block_ham, state);
+    }
+    control (block_exp == 1) {
+      U<0, 0, 0, 1.5707963267948966>(qsvt_aux);
+      my_qsvt<[
+        1.5042417785826467,
+        3.728254043766184,
+        3.728254043766192,
+        (-11.062128835776521)
+      ]>(qsvt_aux, block_ham, state);
+    }
+  }
+}
+
