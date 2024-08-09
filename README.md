@@ -1,4 +1,4 @@
-**Simulating Classical Coupled Harmonic Oscillators Using [Classiq](https://www.classiq.io/)**
+# Hamiltonian Simulation: Simulating System Coupled Classical Harmonic Oscillators Using [Classiq](https://www.classiq.io/)
 
 In recent years, Quantum Computing has made remarkable strides, with increasingly powerful quantum computers being developed annually. Today, machines with hundreds of qubits 
 can execute quantum algorithms with circuit depths reaching into the thousands, all while preserving a significant signal. However, a key challenge within the quantum computing 
