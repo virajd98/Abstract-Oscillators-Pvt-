@@ -1,0 +1,16 @@
+\documentclass[border=2px]{standalone}
+
+\usepackage[braket, qm]{qcircuit}
+\usepackage{graphicx}
+
+\begin{document}
+\scalebox{1.0}{
+\Qcircuit @C=1.0em @R=1.0em @!R { \\
+	 	\nghost{{q}_{0} :  } & \lstick{{q}_{0} :  } & \multigate{2}{\mathrm{StatePreparation}}_<<<{0} & \multigate{5}{\mathrm{init\_state\_phase}}_<<<{0} & \multigate{2}{\mathrm{Exponentiation}}_<<<{0} & \qw & \qw\\
+	 	\nghost{{q}_{1} :  } & \lstick{{q}_{1} :  } & \ghost{\mathrm{StatePreparation}}_<<<{1} & \ghost{\mathrm{init\_state\_phase}}_<<<{1} & \ghost{\mathrm{Exponentiation}}_<<<{1} & \qw & \qw\\
+	 	\nghost{{q}_{2} :  } & \lstick{{q}_{2} :  } & \ghost{\mathrm{StatePreparation}}_<<<{2} & \ghost{\mathrm{init\_state\_phase}}_<<<{2} & \ghost{\mathrm{Exponentiation}}_<<<{2} & \qw & \qw\\
+	 	\nghost{{q}_{3} :  } & \lstick{{q}_{3} :  } & \qw & \ghost{\mathrm{init\_state\_phase}}_<<<{3} & \qw & \qw & \qw\\
+	 	\nghost{{q}_{4} :  } & \lstick{{q}_{4} :  } & \qw & \ghost{\mathrm{init\_state\_phase}}_<<<{4} & \qw & \qw & \qw\\
+	 	\nghost{{q}_{5} :  } & \lstick{{q}_{5} :  } & \qw & \ghost{\mathrm{init\_state\_phase}}_<<<{5} & \qw & \qw & \qw\\
+\\ }}
+\end{document}
