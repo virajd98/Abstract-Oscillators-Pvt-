@@ -21,14 +21,14 @@ oscillators as detailed in the study. You can access the original paper [here](h
 - All theoretical details 
 <img src="https://github.com/user-attachments/assets/0e59441e-b1e3-4f41-8410-d5be388b8bde" alt="Description" width="175">
 
-Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToySuzuki.ipynb) and [here] (https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToyExponentiation.ipynb)
+Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToySuzuki.ipynb) and [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToyExponentiation.ipynb)
 
 
 The implementation should be scalable, such that it is clear how to extend it for a more complicated scenario, and it should be checked and tested using
 a simulator.
 
 2) **Enlarging the problem for a more complicated scenario
-In this step, the actual problem from the paper has been implemented. We attempt to solve Problem 2 of estimating kinetic energy of system of Coupled Oscillators. Our codes are general, and for demonstration we simulate for 8 masses. Refer [here] (https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/KineticEnergyEstimationProblem2.ipynb)
+In this step, the actual problem from the paper has been implemented. We attempt to solve Problem 2 of estimating kinetic energy of system of Coupled Oscillators. Our codes are general, and for demonstration we simulate for 8 masses. Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/KineticEnergyEstimationProblem2.ipynb)
 
 Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares has been done. 
 
