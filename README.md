@@ -9,35 +9,38 @@ bridge the gap between theory and practice by translating the theoretical framew
 *Exponential Quantum Speedup in Simulating Coupled Classical Oscillators*, published in Phys. Rev. X 13, 041041 (2023), into a practical implementation compatible with current quantum 
 hardware and software capabilities.
 
-The objective of our [Womanium Quantum+AI 2024](https://womanium.org/Quantum/AI) Final Project is to implement, optimize, and evaluate the simulation of classical coupled harmonic 
-oscillators as detailed in the study. You can access the original paper [here](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.13.041041).
+The objective of our [Womanium Quantum+AI 2024](https://womanium.org/Quantum/AI) Final Project is to implement, optimize, and evaluate the simulation of classical coupled harmonic oscillators as detailed in the study. You can access the original paper [here](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.13.041041).
 
 ## Table of Contents
 
 1. **Implementation of toy problem** (the simplest possible cases) that covers:
-- Encoding of the problem.
+- Basic theoretical details 
+- Encoding of the problem. (Preprocessing)
 - The key algorithmic building blocks
 - The readout and post-processing.
-- All theoretical details 
 <img src="https://github.com/user-attachments/assets/0e59441e-b1e3-4f41-8410-d5be388b8bde" alt="Description" width="175">
 
-Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToySuzuki.ipynb) and [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToyExponentiation.ipynb)
+Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToySuzuki.ipynb) and [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToyExponentiation.ipynb) for two different simulations of 2 simplest cases (toy problems). Benchmarking using classical numerical methods has also been done. 
 
+The implementation is fairly scalable, and it is straightforward to extend it to a more complicated scenario.
 
-The implementation should be scalable, such that it is clear how to extend it for a more complicated scenario, and it should be checked and tested using
-a simulator.
+2) **Enlarging the problem for a more complicated scenario**
+In this step, an actual problem from the paper has been implemented. We attempt to solve Problem 2 of estimating kinetic energy of system of Coupled Oscillators. Our codes are general, and for demonstration we simulate for $8$ masses. Please note that the simulation time on simulators is long for $N=2**3=8$. Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/KineticEnergyEstimationProblem2.ipynb) for Kinetic energy estimation for $N=8$ system. The results are benchmarked using classical numerical methods. 
 
-2) **Enlarging the problem for a more complicated scenario
-In this step, the actual problem from the paper has been implemented. We attempt to solve Problem 2 of estimating kinetic energy of system of Coupled Oscillators. Our codes are general, and for demonstration we simulate for 8 masses. Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/KineticEnergyEstimationProblem2.ipynb)
+A sneak peak into our results for this problem. 
+
+<img src="https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/Figures/Kinetic%20Energy%20Comparision.PNG" alt="Description" width="175">
+
 
 Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares has been done. 
 
-3) **Optimize the solution for the most adequate hardware** that was found in the second step. 
+3) **Optimization of the solution found in step 1 for the most adequate hardwares**
  
-Deliverables:
+**Final Deliverables:**
+
 ● Slides that summarize the work
-● **The .qmod and .qprog files for each step.** This can be found in the folder named [Figures](https://github.com/virajd98/Abstract-Oscillators-Pvt-/tree/main/Figures)
-● The Python Jupyter notebooks of each step
+● **The .qmod and .qprog files for each step.** This can be found in the folder named [QMOD Files](https://github.com/virajd98/Abstract-Oscillators-Pvt-/tree/main/QMOD%20Files) and [QPROG Files](https://github.com/virajd98/Abstract-Oscillators-Pvt-/tree/main/Figures/QPROG%20Files) respectively. 
+● The Python Jupyter notebooks with elaborate details for each step 
 
 ## Installation and Usage
 
