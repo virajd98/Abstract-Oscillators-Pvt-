@@ -18,18 +18,19 @@ The objective of our [Womanium Quantum+AI 2024](https://womanium.org/Quantum/AI)
 - Encoding of the problem. (Preprocessing)
 - The key algorithmic building blocks
 - The readout and post-processing.
-<img src="https://github.com/user-attachments/assets/0e59441e-b1e3-4f41-8410-d5be388b8bde" alt="Description" width="175">
+<img src="https://github.com/user-attachments/assets/0e59441e-b1e3-4f41-8410-d5be388b8bde" alt="Description" width="255">
 
 Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToySuzuki.ipynb) and [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToyExponentiation.ipynb) for two different simulations of 2 simplest cases (toy problems). Benchmarking using classical numerical methods has also been done. 
 
 The implementation is fairly scalable, and it is straightforward to extend it to a more complicated scenario.
 
 2) **Enlarging the problem for a more complicated scenario**
-In this step, an actual problem from the paper has been implemented. We attempt to solve Problem 2 of estimating kinetic energy of system of Coupled Oscillators. Our codes are general, and for demonstration we simulate for $8$ masses. Please note that the simulation time on simulators is long for $N=2**3=8$. Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/KineticEnergyEstimationProblem2.ipynb) for Kinetic energy estimation for $N=8$ system. The results are benchmarked using classical numerical methods. 
+
+In this step, an actual problem from the paper has been implemented. We attempt to solve Problem 2 of estimating kinetic energy of system of Coupled Oscillators. Our codes are general, and for demonstration we simulate for $8$ masses. Please note that the simulation time on simulators is long for $N=2^3=8$. Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/KineticEnergyEstimationProblem2.ipynb) for Kinetic energy estimation for $N=8$ system. The results are benchmarked using classical numerical methods. 
 
 A sneak peak into our results for this problem. 
 
-<img src="https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/Figures/Kinetic%20Energy%20Comparision.PNG" alt="Description" width="175">
+<img src="https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/Figures/Kinetic%20Energy%20Comparision.PNG" alt="Description" width="255">
 
 
 Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares has been done. 
@@ -37,7 +38,7 @@ Resources estimation in terms of circuit depth, circuit width and number of 2-qu
 3) **Optimization of the solution found in step 1 for the most adequate hardwares**
  
 **Final Deliverables:**
-gi
+
 ● Slides that summarize the work
 ● **The .qmod and .qprog files for each step.** This can be found in the folder named [QMOD Files](https://github.com/virajd98/Abstract-Oscillators-Pvt-/tree/main/QMOD%20Files) and [QPROG Files](https://github.com/virajd98/Abstract-Oscillators-Pvt-/tree/main/Figures/QPROG%20Files) respectively. 
 ● The Python Jupyter notebooks with elaborate details for each step 
@@ -78,5 +79,7 @@ This project is licensed under the MIT License - see the [LICENSE](MIT-LICENSE.t
 - A heartfelt gratitude to [Womanium Team](https://womanium.org/Quantum/AI) for designing & organizing this program, and offering scholarships. 
 - Special thanks to [Eden Shirman](https://www.linkedin.com/in/eden-schirman-71bb7a1b9/?originalSubdomain=il), [Tomer Goldfriend](https://www.linkedin.com/in/tomer-goldfriend-3422341b2/), and [everyone at Classiq](https://app.slack.com/client/T04KVKJKKFY/search).
 - This project uses [Classiq Github](https://github.com/Classiq/classiq-library/tree/main) by [Classiq](https://www.classiq.io/).
+
+
 ![image](https://github.com/user-attachments/assets/71d911d2-f9f3-4ff8-88d0-be8e894334c3)
 
