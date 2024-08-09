@@ -1,0 +1,207 @@
+qfunc init_state_phase(state: qnum) {
+  state_in_qubit: qbit[];
+  msb: qbit[];
+  allocate<3.0>(msb);
+  state -> state_in_qubit;
+  repeat (i: state_in_qubit.len) {
+    CX(state_in_qubit[i], msb[i]);
+  }
+  control (msb[2.0]) {
+    PHASE<1.5707963267948966>(state_in_qubit[2.0]);
+  }
+  state_in_qubit -> state;
+}
+
+qfunc apply_pauli_term<pauli_string: PauliTerm>(state: qbit[]) {
+  repeat (index: state.len) {
+    switch<pauli_string.pauli[index], [lambda() {
+      IDENTITY(state[(pauli_string.pauli.len - index) - 1]);
+    }, lambda() {
+      X(state[(pauli_string.pauli.len - index) - 1]);
+    }, lambda() {
+      Y(state[(pauli_string.pauli.len - index) - 1]);
+    }, lambda() {
+      Z(state[(pauli_string.pauli.len - index) - 1]);
+    }]>();
+  }
+}
+
+qfunc lcu_paulis<pauli_terms_list: PauliTerm[], signs: int[], probs: real[]>(block: qnum, state: qbit[]) {
+  within {
+    inplace_prepare_state<probs, 0.0>(block);
+  } apply {
+    repeat (i: pauli_terms_list.len) {
+      control (block == i) {
+        U<0, 0, 0, 1.5707963267948966 * signs[i]>(state[0]);
+        apply_pauli_term<pauli_terms_list[i]>(state);
+      }
+    }
+  }
+}
+
+qfunc my_walk_operator(block: qbit[], state: qbit[]) {
+  lcu_paulis<[
+    PauliTerm {
+      pauli=[
+        Pauli::X,
+        Pauli::I,
+        Pauli::Z
+      ],
+      coefficient=-0.5
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::X,
+        Pauli::I,
+        Pauli::X
+      ],
+      coefficient=-0.25
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::X,
+        Pauli::Z,
+        Pauli::Z
+      ],
+      coefficient=-0.5
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::X,
+        Pauli::Z,
+        Pauli::X
+      ],
+      coefficient=-0.25
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::X,
+        Pauli::X,
+        Pauli::X
+      ],
+      coefficient=-0.25
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::X,
+        Pauli::Y,
+        Pauli::Y
+      ],
+      coefficient=-0.25
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::Y,
+        Pauli::I,
+        Pauli::Y
+      ],
+      coefficient=0.25
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::Y,
+        Pauli::Z,
+        Pauli::Y
+      ],
+      coefficient=0.25
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::Y,
+        Pauli::X,
+        Pauli::Y
+      ],
+      coefficient=-0.25
+    },
+    PauliTerm {
+      pauli=[
+        Pauli::Y,
+        Pauli::Y,
+        Pauli::X
+      ],
+      coefficient=0.25
+    }
+  ], [
+    2.0,
+    3.0,
+    2.0,
+    3.0,
+    2.0,
+    3.0,
+    0.0,
+    1.0,
+    2.0,
+    1.0
+  ], [
+    0.1666666666666666,
+    0.0833333333333333,
+    0.1666666666666666,
+    0.0833333333333333,
+    0.0833333333333333,
+    0.0833333333333333,
+    0.0833333333333333,
+    0.0833333333333333,
+    0.0833333333333333,
+    0.0833333333333333,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]>(block, state);
+  reflect_about_zero(block);
+  RY<6.283185307179586>(block[0]);
+}
+
+qfunc lcu_cheb<coef: real[], generalized_signs: int[], walk_operator: qfunc (arg0: qnum, arg1: qbit[])>(walk_block: qnum, state: qbit[], cheb_block: qnum) {
+  within {
+    inplace_prepare_state<coef, 0.0>(cheb_block);
+  } apply {
+    repeat (k: generalized_signs.len) {
+      control (cheb_block == k) {
+        U<0, 0, 0, 1.5707963267948966 * generalized_signs[k]>(state[0]);
+        power (k) {
+          walk_operator(walk_block, state);
+        }
+      }
+    }
+  }
+}
+
+qfunc main(output ham_block: qnum, output state: qnum, output exp_block: qnum) {
+  allocate<3>(exp_block);
+  allocate<4>(ham_block);
+  prepare_amplitudes<[
+    (1 + 0j),
+    0j,
+    0j,
+    0j,
+    (-0j),
+    (-0j),
+    (-0j),
+    (-0j)
+  ], 0.0>(state);
+  init_state_phase(state);
+  lcu_cheb<[
+    0.2283522789300377,
+    0.4978475378145419,
+    0.2070921592259807,
+    0.0543982201214064,
+    0.0105007212596449,
+    0.0016056265967,
+    0.0002034560516883,
+    0
+  ], [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    0.0,
+    1.0,
+    2.0
+  ], lambda(x, y) {
+    my_walk_operator(x, y);
+  }>(ham_block, state, exp_block);
+}
+
