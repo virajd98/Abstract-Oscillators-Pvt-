@@ -14,27 +14,30 @@ oscillators as detailed in the study. You can access the original paper [here](h
 
 ## Table of Contents
 
-1. **[Implement a toy problem](CoupledSHO_accurate_toy_example.ipynb)** (the simplest possible) that covers:
+1. **Implementation of toy problem** (the simplest possible cases) that covers:
 - Encoding of the problem.
 - The key algorithmic building blocks
 - The readout and post-processing.
+- All theoretical details 
 <img src="https://github.com/user-attachments/assets/0e59441e-b1e3-4f41-8410-d5be388b8bde" alt="Description" width="175">
+
+Refer [here](https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToySuzuki.ipynb) and [here] (https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/ToyExponentiation.ipynb)
 
 
 The implementation should be scalable, such that it is clear how to extend it for a more complicated scenario, and it should be checked and tested using
 a simulator.
 
-2) **[Enlarge the problem for a more complicated scenario](Kinetic%20Energy%20Estimation%20-%20Problem%202.ipynb)**.
-![image](https://github.com/user-attachments/assets/1d8aa050-5b69-4165-83bc-a7d21aa0fc89)
-In this step, the actual problems from the papers should be implemented (e.g. the actual Hamiltonian that is shown in the paper should be
-implemented). Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares.
+2) **Enlarging the problem for a more complicated scenario
+In this step, the actual problem from the paper has been implemented. We attempt to solve Problem 2 of estimating kinetic energy of system of Coupled Oscillators. Our codes are general, and for demonstration we simulate for 8 masses. Refer [here] (https://github.com/virajd98/Abstract-Oscillators-Pvt-/blob/main/KineticEnergyEstimationProblem2.ipynb)
+
+Resources estimation in terms of circuit depth, circuit width and number of 2-qubit gates should be made and compared across several hardwares has been done. 
 
 3) **Optimize the solution for the most adequate hardware** that was found in the second step. 
  
 Deliverables:
-● Slides that summarize the work (5 mins - that would be 5 slides at max)
-● **The .qmod and .qprog files for each step.**
-● The Python Jupyter notebooks of each step (if applicable)
+● Slides that summarize the work
+● **The .qmod and .qprog files for each step.** This can be found in the folder named [Figures](https://github.com/virajd98/Abstract-Oscillators-Pvt-/tree/main/Figures)
+● The Python Jupyter notebooks of each step
 
 ## Installation and Usage
 
