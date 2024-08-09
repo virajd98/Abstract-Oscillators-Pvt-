@@ -14,8 +14,6 @@ oscillators as detailed in the study. You can access the original paper [here](h
 
 ## Table of Contents
 
-
-
 1. **[Implement a toy problem](CoupledSHO_accurate_toy_example.ipynb)** (the simplest possible) that covers:
 - Encoding of the problem.
 - The key algorithmic building blocks
@@ -38,39 +36,40 @@ Deliverables:
 ● **The .qmod and .qprog files for each step.**
 ● The Python Jupyter notebooks of each step (if applicable)
 
-## Installation
+## Installation and Usage
 
-Step-by-step instructions on how to get the project running. 
+Please fork the repository and clone the fork to your local device. Certain files use other files which has helper functions. 
 
-## Usage
+The project uses the following packages: classiq (0.43.3), scipy, numpy, matplotlib, tqdm, qutip (optional).
 
-How to use the project, with examples.
+For installation run the following on codecell of jupyter notebook
+
+`!pip install <package-name>` 
+
 
 ## Contributing
 
-Guidelines for contributing to the project.
+If you wish to contribute to this repository, please fork the repository, make your contributions in your fork, and submit a pull request
+
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](MIT-LICENSE.txt) file for details.
 
 ## Bibliography:
-1. R. Babbush, D. W. Berry, R. Kothari, R. D. Somma, and N. Wiebe, *Exponential Quantum Speedup in Simulating Coupled Classical Oscillators*, published in Phys. Rev. X 13, 041041 (2023), 
-https://doi.org/10.1103/PhysRevX.13.041041, [link to paper](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.13.041041)
-2. G.H. Low, I.L. Chuang, *Hamiltonian simulation by Qubitization*, published in Quantum, 3 (2019), p. 163, 	https://doi.org/10.22331/q-2019-07-12-163, [link to paper](https://quantum-journal.org/papers/q-2019-07-12-163/)
-3. [Classiq Github HHL](https://github.com/Classiq/classiq-library/blob/main/tutorials/technology_demonstrations/hhl/hhl.ipynb)
-4. [Classiq Github Hamiltonian](https://github.com/Classiq/classiq-library/blob/main/tutorials/technology_demonstrations/hamiltonian_evolution/hamiltonian_evolution.ipynb)
-5.  [Classiq Github Glued Trees](https://github.com/Classiq/classiq-library/blob/9c43f05f3d498c8c72be7dcb3ecdaba85d9abd6e/algorithms/glued_trees/glued_trees.ipynb#L4)
-5. [Classiq Github Hamiltonian Qubitization](https://github.com/Classiq/classiq-library/tree/9c43f05f3d498c8c72be7dcb3ecdaba85d9abd6e/tutorials/hamiltonian_simulation/hamiltonian_simulation_with_block_encoding)
-6. [Classiq documentation](https://docs.classiq.io/latest/)
 
+1. R. Babbush, D. W. Berry, R. Kothari, R. D. Somma, and N. Wiebe, *Exponential Quantum Speedup in Simulating Coupled Classical Oscillators*, published in Phys. Rev. X 13, 041041 (2023), https://doi.org/10.1103/PhysRevX.13.041041, [link to paper](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.13.041041)
+2. G.H. Low, I.L. Chuang, *Hamiltonian simulation by Qubitization*, published in Quantum, 3 (2019), p. 163, 	https://doi.org/10.22331/q-2019-07-12-163, [link to paper](https://quantum-journal.org/papers/q-2019-07-12-163/)
+3. András Gilyén, Yuan Su, Guang Hao Low, and Nathan Wiebe. 2019. Quantum singular value transformation and beyond: exponential improvements for quantum matrix arithmetics. In Proceedings of the 51st Annual ACM SIGACT Symposium on Theory of Computing (STOC 2019). Association for Computing Machinery, New York, NY, USA, 193–204. https://doi.org/10.1145/3313276.3316366,[link to paper](https://dl.acm.org/doi/10.1145/3313276.3316366)
+4. [Classiq Github Hamiltonian Qubitization](https://github.com/Classiq/classiq-library/tree/9c43f05f3d498c8c72be7dcb3ecdaba85d9abd6e/tutorials/hamiltonian_simulation/hamiltonian_simulation_with_block_encoding)
+5.  [Classiq Github Glued Trees](https://github.com/Classiq/classiq-library/blob/9c43f05f3d498c8c72be7dcb3ecdaba85d9abd6e/algorithms/glued_trees/glued_trees.ipynb#L4)
+6. [Classiq documentation](https://docs.classiq.io/latest/)
+ 
 
 ## Acknowledgments
 
-- Thank you to [Eden Shirman](https://www.linkedin.com/in/eden-schirman-71bb7a1b9/?originalSubdomain=il), [Tomer Goldfriend](https://www.linkedin.com/in/tomer-goldfriend-3422341b2/), and
-   [everyone at Classiq](https://app.slack.com/client/T04KVKJKKFY/search).
-- Special thanks to [Womanium Team](https://womanium.org/Quantum/AI) for designing & organizing this program, and offering scholarships
+- A heartfelt gratitude to [Womanium Team](https://womanium.org/Quantum/AI) for designing & organizing this program, and offering scholarships. 
+- Special thanks to [Eden Shirman](https://www.linkedin.com/in/eden-schirman-71bb7a1b9/?originalSubdomain=il), [Tomer Goldfriend](https://www.linkedin.com/in/tomer-goldfriend-3422341b2/), and [everyone at Classiq](https://app.slack.com/client/T04KVKJKKFY/search).
 - This project uses [Classiq Github](https://github.com/Classiq/classiq-library/tree/main) by [Classiq](https://www.classiq.io/).
-
 ![image](https://github.com/user-attachments/assets/71d911d2-f9f3-4ff8-88d0-be8e894334c3)
 
